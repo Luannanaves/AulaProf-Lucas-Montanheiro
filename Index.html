@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de clientes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .aviso {
+      color: red;
+      margin-bottom: 20px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    legend {
+
+    
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+      cursor: pointer;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    .botoes {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cadastro de clientes</h1>
+  <p class="aviso">Todos os campos são de preenchimento obrigatório</p>
+
+  <form id="formulario" onsubmit="return validarFormulario()">
+    
+    <fieldset>
+      <legend>Dados pessoais</legend>
+      
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required required placeholder="Nome completo">
+      
+      <label for="nascimento">Data de nascimento:</label>
+      <input type="date" id="nascimento" name="nascimento" required>
+      
+     <label for="sexo">Sexo:</label>
+<select id="sexo" name="sexo" required>
+  <option value="">Selecione</option>
+  <option value="masculino">Masculino</option>
+  <option value="feminino">Feminino</option>
+  
+</select>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Informações de contato</legend>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required required placeholder="Apenas numeros(máx:9)" >
+      
+      <label for="telefone">Telefone celular:</label>
+      <input type="text" id="telefone" name="telefone" maxlength="9" pattern="[0-9]{9}" required placeholder="Somente 9 dígitos">
+      
+      <label for="site">Website pessoal/profissional:</label>
+      <input type="url" id="site" name="site" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Localização</legend>
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required>
+      
+      <label for="numero">Número:</label>
+      <input type="number" id="numero" name="numero" min="1" max="9999" required required placeholder="(Valor entre 1 e 9999)">
+      
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" name="cidade" required>
+      
+      <label for="estado">Estado:</label>
+      <select id="estado" name="estado" required>
+        <option value="">Selecione</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+      </select>
+    </fieldset>
+
+    <div class="botoes">
+      <button type="submit">Cadastrar</button>
+      <button type="reset">Limpar</button>
+    </div>
+  </form>
+
+  <script>
+    function validarFormulario() {
+      const form = document.getElementById("formulario");
+      if (!form.checkValidity()) {
+        alert("Por favor, preencha todos os campos obrigatórios corretamente.");
+        return false;
+      }
+      alert("Cadastro realizado com sucesso!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
